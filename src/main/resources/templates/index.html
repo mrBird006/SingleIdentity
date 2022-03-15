@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Index</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div th:switch="${singers}">
+            <h2 th:if="${#lists.isEmpty(singers)}">No hay cantantes registrados aun!</h2>
+            <div th:unless="${#lists.isEmpty(singers)}">
+                <h2>Users</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="singer : ${singers}">
+                            <td th:text="${singer.name}"></td>
+                            <td th:text="${singer.email}"></td>
+                            <td><a th:href="@{/edit/{id}(id=${singer.id})}">Editar</a></td>
+                            <td><a th:href="@{/delete/{id}(id=${singer.id})}">Eliminar</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>      
+            <p><a href="/sign_up">Agregar nuevo cantante</a></p>
+        </div>
+    </body>
+</html>
