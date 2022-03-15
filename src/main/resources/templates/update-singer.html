@@ -11,7 +11,7 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-   <form action="#" 
+        <form action="#" 
               th:action="@{/update/{id}(id=${singer.id})}" 
               th:object="${singer}" 
               method="post">
@@ -19,10 +19,10 @@ and open the template in the editor.
             <input type="text" th:field="*{name}" id="name" placeholder="Name">
             <label for="email">Email</label>
             <input type="text" th:field="*{email}" id="email" placeholder="Email">
-              <label for="musicalGenre">Genero Musical</label>
+            <label for="musicalGenre">Genero Musical</label>
             <input type="text" th:field="*{musicalGenre}" id="musicalGenre" placeholder="Genero Musical">
-            <input type="submit" value="Update Singer">   
+            <input type="submit" value="Actualizar cantante">   
         </form>
 
-     </body>
+    </body>
 </html>

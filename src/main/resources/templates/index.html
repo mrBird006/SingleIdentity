@@ -14,12 +14,14 @@ and open the template in the editor.
         <div th:switch="${singers}">
             <h2 th:if="${#lists.isEmpty(singers)}">No hay cantantes registrados aun!</h2>
             <div th:unless="${#lists.isEmpty(singers)}">
-                <h2>Users</h2>
+                <h2>Cantantes</h2>
+                <p>Nota: Los datos persisten en una base de datos remota gratuita</p> 
                 <table>
                     <thead>
                         <tr>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Genero musical</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -28,6 +30,7 @@ and open the template in the editor.
                         <tr th:each="singer : ${singers}">
                             <td th:text="${singer.name}"></td>
                             <td th:text="${singer.email}"></td>
+                            <td th:text="${singer.musicalGenre}"></td>
                             <td><a th:href="@{/edit/{id}(id=${singer.id})}">Editar</a></td>
                             <td><a th:href="@{/delete/{id}(id=${singer.id})}">Eliminar</a></td>
                         </tr>
